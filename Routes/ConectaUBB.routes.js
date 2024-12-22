@@ -1,6 +1,7 @@
 const fastify = require('../Config/Plugins.config.js');
-const { ObtenerUsuarios } = require('../services/user.service.js');
+const { ObtenerUsuariosPorCorreo, ObtenerUsuariosPorRut } = require('../services/user.service.js');
 module.exports = function (fastify, options, done) {
-    fastify.get('/usuarios', ObtenerUsuarios);
+    fastify.post('/usuariosCorreo', ObtenerUsuariosPorCorreo);
+    fastify.post('/usuariosRut', ObtenerUsuariosPorRut);
     done();
   };

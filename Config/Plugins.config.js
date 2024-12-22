@@ -4,7 +4,7 @@ const fastify = require('fastify')({ bodyLimit: 1572864 });
 const fastifyCors = require('@fastify/cors');
 fastify.register(fastifyCors, {
     // Configura los orígenes permitidos
-    origin: true
+    origin: '*'
   });
 
 module.exports = fastify;
