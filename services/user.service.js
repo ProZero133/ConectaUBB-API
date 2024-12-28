@@ -20,7 +20,22 @@ async function ObtenerUsuariosPorRut(req, res) {
         res.status(500).send({ error: error.message });
     }
 }
+
+async function getSubstringCorreo(req, res) {
+    try {
+        const correo = req.body.correo;
+        const pool = await poolPromise;
+        const result = await pool.request().input('correo', sql.VarChar, `%${correo}%`).query('SELECT TOP 30 * FROM VTA_WEB_IDENTIFICACION_API WHERE correo LIKE @correo');
+        res.send(result);
+    } catch (error) {
+        res.status(500).send({ error: error.message });
+    }
+}
+
+
+
 module.exports = {
     ObtenerUsuariosPorCorreo,
-    ObtenerUsuariosPorRut
+    ObtenerUsuariosPorRut,
+    getSubstringCorreo
 };
