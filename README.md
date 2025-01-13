@@ -32,3 +32,6 @@ Direcciones IP en las que estará disponible la API  (String) (0.0.0.0 para toda
 
 Iniciar la API utilizando pm2 en el archivo index.js en la raiz del proyecto con el comando:
 pm2 start index.js --name "NombreParaElProceso"
+
+# Para la instalación de la plataforma consultar el siguiente repositorio:
+# https://github.com/ProZero133/AgrupacionesUBB
